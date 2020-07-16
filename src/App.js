@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import largestCollection from './utilities/findLargest';
 
 function App() {
+  const arr = [8,2,1,9,1,1,9];
+  const calculatedArr = largestCollection(arr);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Loot Cave</h1>
+  <p>Array to be calculated: <span>{arr.join(',')}</span></p>
+  <p>Array of the largest non consecutive numbers: <span>{calculatedArr.join(',')}</span></p>
+  <p>Total Sum: <span>{calculatedArr.reduce((acc, el)=> acc+=el, 0)}</span></p>
     </div>
   );
 }
