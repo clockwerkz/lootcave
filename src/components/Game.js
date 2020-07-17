@@ -41,30 +41,35 @@ const Game = (props) => {
     const handleSubmitButton = () => {
         if (customArray !== '') {
             const arr = customArray.match(/-?\d+/g); 
-            const calculateVals = arr.slice(0,100).map(el => {
-                let num = parseInt(el);
-                return num < 1 ? 1 : num > 100 ? 100 : num;
-            });
-            setGameArray(calculateVals);
+            if (arr) {
+                const calculateVals = arr.slice(0,100).map(el => {
+                    let num = parseInt(el);
+                    return num < 1 ? 1 : num > 400 ? 400 : num;
+                });
+                setGameArray(calculateVals);
+            }
         }
     };
 
     if (!levelSelected) {
         return (
-            <div>
-                <h2>Choose your Game Difficulty</h2>
+            <div className="game">
+                <h2 className="game-title">Choose your Game Difficulty</h2>
                 <div className="game-options">
-                    <button onClick={()=>levelChoice("Easy")}>Easy</button>
-                    <button onClick={()=>levelChoice("Medium")}>Medium</button>
-                    <button onClick={()=>levelChoice("Hard")}>Hard</button>
-                    <button onClick={()=>levelChoice("Custom")}>Custom</button>
+                    <button onClick={()=>levelChoice("Easy")} className="game-link start">Easy</button>
+                    <button onClick={()=>levelChoice("Medium")} className="game-link start">Medium</button>
+                    <button onClick={()=>levelChoice("Hard")} className="game-link start">Hard</button>
+                    <button onClick={()=>levelChoice("Custom")} className="game-link start">Custom</button>
+                </div>
+                <div>
+                    <Link to="/" className="game-link">Home</Link>
                 </div>
             </div>
         )
     } else if (levelSelected==="Custom" && gameArray.length===0) {
         return (
             <div>
-                <h2>Set your custom options</h2>
+                <h2 className="game-title">Set your custom options</h2>
                 <input type="text" onChange={(e)=>{setCustomArray(e.target.value)}} value={customArray} />
                 <button onClick={handleSubmitButton}>Start Game</button>
             </div>

@@ -53,8 +53,8 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
     }
     if (gameOver==="") {
         return (
-            <div>
-                <h2>Game Board</h2>
+            <div className="game">
+                <h2 className="game-title">Game Board</h2>
                 <div className="game-board">
                     {gameArray.map((cave, index)=>(
                         <p key={index} className={selected[index] ? "cave "+selected[index] : "cave"} onClick={()=>handleClick(index)}>
@@ -63,15 +63,15 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
                     ))}
                 </div>
                 <div className="game-btns">
-                    <button onClick={()=>setSelected({})}>Reset</button>
-                    <button onClick={()=>handleGameOver("Check")}>Check Yer Loot!</button>
-                    <button onClick={()=>handleGameOver("Reveal")}>I give up! What's the answer??</button>
+                    <button onClick={()=>setSelected({})} className="game-link start">Reset</button>
+                    <button onClick={()=>handleGameOver("Check")} className="game-link start">Check Yer Loot!</button>
+                    <button onClick={()=>handleGameOver("Reveal")} className="game-link start">I give up! What's the answer??</button>
                 </div>
             </div>
         )
     } else if (gameOver ==="Check"){
         return (
-            <div>
+            <div className="game">
                 {playerTotal === correctTotal ? (
                     <div>
                         <h2>You Win!</h2>
@@ -91,12 +91,13 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
                         </p>
                     ))}
                 </div>
-                <button onClick={resetGame}>Start Over!</button>
+                <button onClick={resetGame} className="game-link">Start Over!</button>
+                <Link to="/" className="game-link">Home</Link>
             </div>
         )
     } else {
         return (
-            <div>
+            <div className="game">
                 <h2>Better Luck next time!</h2>
                 <h2>Total possible score: {correctTotal}</h2>
                 <div className="game-board">
@@ -106,7 +107,8 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
                         </p>
                     ))}
                 </div>
-                <button onClick={resetGame}>Start Over!</button>
+                <button onClick={resetGame} className="game-link">Start Over!</button>
+                <Link to="/" className="game-link">Home</Link>
             </div>
         )
     }

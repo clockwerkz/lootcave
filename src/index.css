@@ -3,6 +3,11 @@
 font-family: 'IM Fell English', serif;
 font-family: 'Lato', sans-serif;
 */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -65,16 +70,62 @@ h2 {
 }
 
 .instructions {
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
+  color: #A4A8A7;
+  background-color: #344857;
+  padding: 1rem;
+}
+.instructions-link,  .game-link {
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #A4A8A7;
+  padding: 5px;
+  margin: 1rem;
+  font-size: 20px;
+  color: #344857;
+}
+
+.start {
+  background-color: salmon;
+  padding: 5px 10px;
+}
+
+.in-game {
+  background-color: salmon;
+  padding: 5px 10px;
+}
+
+.instructions-link:hover, .game-link:hover {
+  background-color: white;
+  color: black;
+}
+
+.instructions p {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 150%;
+}
+
+.highlight {
+  color: #F9EBE1;
 }
 .game-board {
   display: flex;
   flex-wrap: wrap;
 }
+.game {
+  text-align: center;
+}
+.game-title {
+  font-size: 2.5rem;
+}
 
 .cave {
   width: 5%;
-  margin: 1rem 1rem;
+  margin: 1rem auto;
   height: 35px;
   line-height: 35px;
   text-align: center;
