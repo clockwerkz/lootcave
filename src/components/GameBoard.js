@@ -55,6 +55,7 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
         return (
             <div className="game">
                 <h2 className="game-title">Game Board</h2>
+                <p>Select your Caves!</p>
                 <div className="game-board">
                     {gameArray.map((cave, index)=>(
                         <p key={index} className={selected[index] ? "cave "+selected[index] : "cave"} onClick={()=>handleClick(index)}>

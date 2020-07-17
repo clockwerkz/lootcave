@@ -40,11 +40,11 @@ const Game = (props) => {
 
     const handleSubmitButton = () => {
         if (customArray !== '') {
-            const arr = customArray.match(/-?\d+/g); 
+            const arr = customArray.match(/\d+/g); 
             if (arr) {
                 const calculateVals = arr.slice(0,100).map(el => {
                     let num = parseInt(el);
-                    return num < 1 ? 1 : num > 400 ? 400 : num;
+                    return  num > 400 ? 400 : num;
                 });
                 setGameArray(calculateVals);
             }
