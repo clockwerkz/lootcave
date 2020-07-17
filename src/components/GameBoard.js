@@ -24,7 +24,7 @@ const GameBoard = ({ gameArray = [], resetGame }) => {
         let ptr = 0;
         let answerSelected = {};
         for (let idx=0; idx<gameArray.length; idx++) {
-            if (gameArray[idx] === answers[ptr]) {
+            if (gameArray[idx] === answers[ptr] && answerSelected[idx-1] !== 'selected') {
                 answerSelected[idx] = 'selected';
                 ptr++;
             } else {
